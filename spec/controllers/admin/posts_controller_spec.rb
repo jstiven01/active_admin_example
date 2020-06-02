@@ -26,13 +26,14 @@ RSpec.describe Admin::PostsController, type: :controller do
       expect(page).to have_content(post.body)
       expect(page).to have_content(post.published_at)
     end
-=begin
+
     let(:filters_sidebar) { page.find('#filters_sidebar_section') }
     it "filter Name exists" do
       get :index
       expect(filters_sidebar).to have_css('label[for="q_first_name_or_last_name_cont"]', text: 'Name')
       expect(filters_sidebar).to have_css('input[name="q[first_name_or_last_name_cont]"]')
     end
+=begin
     it "filter Name works" do
       matching_person = Fabricate :person, first_name: 'ABCDEFG'
       non_matching_person = Fabricate :person, first_name: 'HIJKLMN'
